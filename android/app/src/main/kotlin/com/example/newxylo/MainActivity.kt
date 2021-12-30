@@ -1,4 +1,4 @@
-package com.example.xylophone
+package com.example.newxylo
 
 import io.flutter.embedding.android.FlutterActivity
 
