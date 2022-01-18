@@ -11,63 +11,35 @@ class XylophoneApp extends StatelessWidget {
     audio.play('note$soundNumber.wav');
   }
 
+  Expanded buildKey({required Color color, required int soundNumber}) {
+    return Expanded(
+      child: MaterialButton(
+        color: color,
+        enableFeedback: false,
+        onPressed: () {
+          playSound(soundNumber);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              MaterialButton(
-                color: Colors.red,
-                enableFeedback: false,
-                onPressed: () {
-                  playSound(1);
-                },
-              ),
-              MaterialButton(
-                color: Colors.orange,
-                enableFeedback: false,
-                onPressed: () {
-                  playSound(2);
-                },
-              ),
-              MaterialButton(
-                color: Colors.yellow,
-                enableFeedback: false,
-                onPressed: () {
-                  playSound(3);
-                },
-              ),
-              MaterialButton(
-                color: Colors.green,
-                enableFeedback: false,
-                onPressed: () {
-                  playSound(4);
-                },
-              ),
-              MaterialButton(
-                color: Colors.lightBlue[100],
-                enableFeedback: false,
-                onPressed: () {
-                  playSound(5);
-                },
-              ),
-              MaterialButton(
-                color: Colors.blue,
-                enableFeedback: false,
-                onPressed: () {
-                  playSound(6);
-                },
-              ),
-              MaterialButton(
-                color: Colors.indigo,
-                enableFeedback: false,
-                onPressed: () {
-                  playSound(7);
-                },
-              ),
+              buildKey(color: Colors.red, soundNumber: 1),
+              buildKey(color: Colors.orange, soundNumber: 2),
+              buildKey(color: Colors.yellow, soundNumber: 3),
+              buildKey(color: Colors.green, soundNumber: 4),
+              buildKey(color: Colors.lightBlue, soundNumber: 5),
+              buildKey(color: Colors.blue.shade900, soundNumber: 67),
+              buildKey(color: Colors.indigo, soundNumber: 7),
             ],
           ),
         ),
